@@ -2,19 +2,27 @@ package com.fvss.course.entities;
 
 import java.io.Serializable;
 
-public class User implements Serializable{
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class Uuser implements Serializable{
     
     private static final long serialVersionUID = 1;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
     private String phone;
     private String password;
 
-    public User(){}
+    public Uuser(){}
 
-    public User(Long id, String name, String email, String phone, String password) {
+    public Uuser(Long id, String name, String email, String phone, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -78,7 +86,7 @@ public class User implements Serializable{
             return false;
         if (getClass() != obj.getClass())
             return false;
-        User other = (User) obj;
+        Uuser other = (Uuser) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
