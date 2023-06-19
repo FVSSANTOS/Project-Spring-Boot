@@ -4,11 +4,13 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name = "tb_category")
@@ -22,9 +24,6 @@ public class Category implements Serializable{
     private String name;
 
     private Set<Product> products = new HashSet<>();
-
-
-    
 
     public Category(){}
 
@@ -53,7 +52,6 @@ public class Category implements Serializable{
     public Set<Product> getProducts() {
         return products;
     }
-
 
     @Override
     public int hashCode() {
