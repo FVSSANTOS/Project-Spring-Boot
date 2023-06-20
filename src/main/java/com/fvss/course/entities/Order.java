@@ -3,7 +3,6 @@ package com.fvss.course.entities;
 import java.io.Serializable;
 import java.time.Instant;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,6 +10,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import com.fvss.course.entities.enums.OrderStatus;
 
 @Entity

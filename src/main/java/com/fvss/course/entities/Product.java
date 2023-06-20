@@ -19,7 +19,6 @@ import jakarta.persistence.Transient;
 public class Product implements Serializable{
 
     private static final long serialVersionUID = 1;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -112,6 +111,12 @@ public class Product implements Serializable{
             return false;
         return true;
     }
+
+    
+    
+
+    
+    
 
     
 
