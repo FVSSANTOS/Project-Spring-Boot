@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.fvss.course.entities.Category;
 import com.fvss.course.entities.Order;
 import com.fvss.course.entities.OrderItem;
+import com.fvss.course.entities.Payment;
 import com.fvss.course.entities.Product;
 import com.fvss.course.entities.User;
 import com.fvss.course.entities.enums.OrderStatus;
@@ -67,7 +68,7 @@ public class TetsConfig implements CommandLineRunner{
         OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
         OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
 
-        orderItemRepository.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));
+       
 
         categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
         productRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
@@ -80,6 +81,13 @@ public class TetsConfig implements CommandLineRunner{
         p5.getCategories().add(cat2);
 
         productRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
+
+         orderItemRepository.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));
+
+        Payment pay1 = new Payment(null,Instant.parse("2023-06-20T21:53:07Z"), o1);
+        o1.setPayment(pay1);
+
+        orderRepository.save(o1);
     }
 
 
