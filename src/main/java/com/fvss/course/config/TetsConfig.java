@@ -10,10 +10,12 @@ import org.springframework.context.annotation.Profile;
 
 import com.fvss.course.entities.Category;
 import com.fvss.course.entities.Order;
+import com.fvss.course.entities.OrderItem;
 import com.fvss.course.entities.Product;
 import com.fvss.course.entities.User;
 import com.fvss.course.entities.enums.OrderStatus;
 import com.fvss.course.repositories.CategoryRepository;
+import com.fvss.course.repositories.OrderItemRepository;
 import com.fvss.course.repositories.OrderRepository;
 import com.fvss.course.repositories.ProductRepository;
 import com.fvss.course.repositories.UserRepository;
@@ -33,6 +35,9 @@ public class TetsConfig implements CommandLineRunner{
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private OrderItemRepository orderItemRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -56,6 +61,14 @@ public class TetsConfig implements CommandLineRunner{
 
         userRepository.saveAll(Arrays.asList(u1,u2));
         orderRepository.saveAll(Arrays.asList(o1,o2,o3));
+
+        OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
+        OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice());
+        OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
+        OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
+
+        orderItemRepository.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));
+
         categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
         productRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
 
